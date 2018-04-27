@@ -1,0 +1,55 @@
+
+
+#facility-select{
+  margin-left: 20px;
+  display: inline;
+  
+}
+#dayPicker{
+  margin-left: 20px;
+  margin-top: 15px;
+}
+
+.basic-container {
+  padding: 5px;
+}
+
+.table{
+  border-collapse: collapse;
+  width: 75%;
+}
+
+.table td, th{
+  border: 1px solid rgb(170, 161, 161);
+  padding: 8px;
+}
+
+.table tr:nth-child(even){background-color: lightblue;}
+.table thead{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #1a53ff;
+  color: black;
+}
+#full-width{
+ width: 50%;
+}
+
+.table2{
+  border: 4px solid lightcoral;
+  border-collapse: collapse;
+  width: 75%;
+}
+
+.table2 td, th{
+  padding: 8px;
+  text-align: center;
+  background-color: rgb(205, 248, 248);
+}
+.table2 tbody{
+  background-color: rgb(205, 248, 248);
+}
+#second-table{
+  padding-top: 20px;
+}

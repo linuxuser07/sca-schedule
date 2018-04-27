@@ -1,0 +1,26 @@
+
+#app-component-main-div{
+  text-align: left;
+  overflow: hidden;
+  margin-bottom: 10px;
+  background-color: #D3D3D3;
+}
+
+nav {
+  margin-bottom: 10px;
+  margin-left: -5px;
+
+}
+
+#logo{
+  width: 200px;
+  float: left;
+  overflow: hidden;
+}
+#title{
+  overflow: hidden;
+  background-color: #D3D3D3;
+  vertical-align: 50%;
+  font-size: 24px;
+}
+

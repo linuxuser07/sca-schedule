@@ -1,0 +1,75 @@
+<!--Factory Selection-->
+<div id="facility-select" >
+  <label style="margin-right: 20px"><strong>Facility Name: </strong></label>
+<select [(ngModel)]="selectedFacility">
+  <option  *ngFor="let facility of facilities"  [value]="facility.facilityId"> {{facility.facilityName}} ({{facility.facilityId}})</option>
+</select>
+</div>
+
+
+<div id="dayPicker">
+  <label style="margin-right: 5px"><strong>Week Start Date:</strong> </label>
+  <!--date picker with filter date to only allow monday to be clicked -->
+  <mat-form-field >
+    <input matInput [matDatepickerFilter]="onlyMonday" [matDatepicker]="picker" [(ngModel)]="myDate" placeholder="Choose a date" >
+    <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+
+<!--button to get the schedule-->
+<button *ngIf="selectedFacility !== null"  (click)="getSchedule()" 
+style="margin-bottom: 15px; margin-left: 15px" mat-raised-button color="primary"
+ matTooltip="Get the schedules of employees">view Schedule</button>
+<!--Button checks for not enough people -->
+<button (click)="getMissingDays()" mat-raised-button color="primary"
+matTooltip="Checks which days there is not enough Anesthisian's working that day">Check Days</button>
+
+<!-- first table to display the schedules-->
+<div  [hidden]="showTable">
+  <table class="table">
+    <thead>
+      <td>Name </td>
+      <td>Position</td>
+      <td>Monday {{weekDays[0]}}</td>
+      <td>Tuesday {{weekDays[1]}}</td>
+      <td>Wednesday {{weekDays[2]}}</td>
+      <td>Thursday {{weekDays[3]}}</td>
+      <td>Friday {{weekDays[4]}}</td>
+      <td>Saturday {{weekDays[5]}}</td>
+      <td>Sunday {{weekDays[6]}}</td>
+    </thead>
+    <tbody>
+    <tr *ngFor="let schedule of schedules">
+      <td>{{schedule.teammateName}}</td>
+      <td>{{schedule.teammateType}}</td>
+      <td>{{schedule.monday}}</td>
+      <td>{{schedule.tuesday}}</td>
+      <td>{{schedule.wednesday}}</td>
+      <td>{{schedule.thursday}}</td>
+      <td>{{schedule.friday}}</td>
+      <td>{{schedule.saturday}}</td>
+      <td>{{schedule.sunday}}</td>
+    </tr>
+    </tbody>
+  <div>
+</div>
+  </table>
+</div>
+
+<!--Second table shows the days there is not enough people-->
+<div id="second-table" [hidden]="showTable2">
+  <table class="table2">
+    <thead >
+      <td><strong>Not enough Anesthisia People during this days</strong></td>
+    </thead>
+    <tbody>
+      <tr *ngFor="let people of missingDays" >
+        <td><strong>{{people.Day}} </strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
