@@ -64,6 +64,7 @@ export class ScheduleComponent implements OnInit {
   getSchedule() {
     // hides the days table
     this.showTable2 = true;
+    // resetting the weekDays and missingDates to show proper dates and days where anesthesians are needed. 
     this.weekDays =[];
     this.missingDays = [];
     //checks to make sure that there is values selected so it doesn't do a empty call and checkint to see if its a monday selected. 
@@ -85,8 +86,7 @@ export class ScheduleComponent implements OnInit {
       return day === 1;
   }
   //going through each day to find if there is more than one person working. 
-  //TODO: make this prettier and more efficient. 
-
+  // and adding it to the missingDays. 
   dayOff(){
     var schedule = this.schedules;
     console.log("Inside dayOff", schedule);
@@ -162,6 +162,7 @@ export class ScheduleComponent implements OnInit {
     } 
   } 
   }
+  // calls the days off function. 
   getMissingDays(){
     if(this.schedules !== undefined){
     this.dayOff();
